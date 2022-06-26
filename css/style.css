@@ -216,10 +216,10 @@ table{border-collapse:collapse;border-spacing:0}
 .block.selected .block__weight{
     background: #D91667;
 }
-.block.selected.hover{
+.block.selected.hoverS{
     --border-color:#E52E7A;
 }
-.block.selected.hover .block__weight{
+.block.selected.hoverS .block__weight{
     background: #E52E7A;
 }
 .block.hoverS .block__content-top-description .top-description-default{
