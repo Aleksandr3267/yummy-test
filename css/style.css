@@ -1,0 +1,273 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{height:100%}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+
+@font-face {
+	font-family: 'Exo2'; 
+	src: local('Exo2'),
+		url(../fonts/Exo2.0-Thin.otf); 
+}
+.wrapper{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: url(../img/background.png)no-repeat center top / cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.feed{
+    padding: 20px;
+}
+.wrapper .title{
+    font-family: 'Exo2'; 
+    font-size: 2.25rem;
+    line-height: 44px;
+    color: white;
+    text-align: center;
+    margin-top: 36px;
+}
+.blocks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-wrap: wrap;
+    margin: -16px -40px 0 -40px;
+}
+.block{
+    width: 100%;
+    max-width: 320px;
+    height: 480px;
+    background: #F2F2F2;
+    clip-path: polygon(var(--edge-size) 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+    position: relative;
+    border-radius: 12px;
+    transition: .5s ease;
+    cursor: pointer;
+    margin: 0 40px;
+    isolation: isolate;
+    --background-color: #F2F2F2;
+    --border-color: #1698D9;
+    --border-width: 4px;
+    --edge-size: 3em;
+    padding: 4px;
+}
+.block.hover{
+    --border-color: #2EA8E6;
+}
+.block::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--border-color);
+    z-index: -2;
+    border-radius: 12px;
+    transition: .5s ease;
+}
+.block::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--background-color);
+    z-index: -1;
+    border-radius: 21px;
+    clip-path: polygon(var(--border-width) calc(var(--edge-size) + var(--border-width) * 1), calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * -11)), calc(var(--border-width)) calc(100% - var(--border-width)));
+}
+.block__content{
+    z-index: 2;
+    position: relative;
+    margin: 0 47px;
+}
+.block__content p{
+    font-size: 1rem;
+    line-height: 19px;
+    color: #666666;
+    font-family: 'Trebuchet MS';
+}
+.block__content .block__content-top-description{
+    position: relative;
+    margin-top: 20px;
+}
+.block__content-top-description .top-description-default{
+    animation: shows 0.5s forwards;
+}
+.block .block__content-top-description .top-description-selected{
+    animation: nones 0s forwards;
+    opacity: 0;
+    position: absolute;
+    color: #E62E7A;
+}
+.block .block__content-top-description .top-description-selected.anim{
+    animation: nones 0.5s forwards;
+}
+.block.selected .block__content-top-description .top-description-selected{
+    color: #E62E7A;
+    position: absolute;
+    animation: nones 0.5s forwards;
+}
+.block__content-top-description .top-description-default, .block__content-top-description .top-description-selected{
+    top: 0;
+}
+.block__content h2{
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 56px;
+    color: #000000;
+}
+.block__content h4{
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size:1.5rem;
+    line-height: 28px;
+    color: #000000;
+}
+.block__content .block__content-description{
+    max-width: 200px;
+    margin-top: 15px;
+}
+.block__content .block__content-description .description-count{
+    display: block;
+}
+.block__weight{
+    z-index: 2;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #1698D9;
+    font-size: 2.625rem;
+    font-family: 'Trebuchet MS';
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    right: 16px;
+    bottom: 16px;
+    transition: .5s ease;
+}
+.block.hover .block__weight{
+    background: #2EA8E6;
+}
+.block__weight-text{
+    font-size: 1.3125rem;
+    margin-top: 0px;
+}
+.image-block{
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+}
+.card{
+    position: relative;
+    margin: 40px 0 40px 0;
+}
+.card .card-text, .card .card-text-selected, .card .card-text-disabled{
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    transition: .3s ease;
+    position: absolute;
+    bottom: -28px;
+}
+.card .card-text-disabled{
+    color: #FFFF66;
+    opacity: 0;
+}
+.card .card-text .click{
+    color: #1698D9;
+    border-bottom: 1px dashed #1698D9;
+    cursor: pointer;
+    transition: .5s ease;
+}
+.card .card-text .click:hover{
+    color: #2EA8E6;
+}
+.card-text{
+    z-index: 2;
+}
+.card-text.disable{
+    opacity: 0;
+    z-index: 1;
+}
+.card-text-selected{
+    opacity: 0;
+    z-index: 1;
+}
+.card-text-selected.selected{
+    opacity: 1;
+    z-index: 2;
+}
+.block.selected{
+    --border-color: #D91667;
+}
+.block.selected .block__weight{
+    background: #D91667;
+}
+.block.selected.hover{
+    --border-color:#E52E7A;
+}
+.block.selected.hover .block__weight{
+    background: #E52E7A;
+}
+.block.hoverS .block__content-top-description .top-description-default{
+    animation: nones .5s forwards;
+    
+}
+.block.hoverS .block__content-top-description .top-description-selected{
+    animation: shows .5s forwards;
+    
+}
+@keyframes nones {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        position: absolute;
+    }
+}
+@keyframes shows {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        position: static;
+    }
+}
+.card.disabled .block{
+    --border-color: #B3B3B3;
+}
+.card.disabled .block__content p, .card.disabled .block__content h2, .card.disabled .block__content h4{
+    color: #B3B3B3;
+}
+.card.disabled .image-block{
+    opacity: .6;
+}
+.card.disabled .block__weight{
+    background: #B3B3B3;
+}
+.card.disabled .card-text{
+    opacity: 0;
+}
+.card.disabled .card-text-disabled{
+    opacity: 1;
+}
+
+

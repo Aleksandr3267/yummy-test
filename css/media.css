@@ -1,0 +1,81 @@
+@media(max-width:1200px){
+    .wrapper .title{
+        font-size: 2rem;
+    }
+    .block {
+        max-width: 270px;
+        height: 430px;
+    }
+    .block::after{
+        clip-path: polygon(var(--border-width) calc(var(--edge-size) + var(--border-width) * 0), calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * -11)), calc(var(--border-width)) calc(100% - var(--border-width)));
+    }
+    .block__content p{
+        font-size: 0.8rem;
+        line-height: 15px;
+    }
+    .block__content h2{
+        font-size: 2.5rem;
+        line-height: 46px;
+    }
+    .block__content h4{
+        font-size: 1.2rem;
+    }
+    .block__content .block__content-description{
+        max-width: 150px;
+    }
+    .image-block{
+        width: 100%;
+    }
+    .block__weight{
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    .block__weight-text {
+        font-size: 1rem;
+    }
+    .card .card-text, .card .card-text-selected, .card .card-text-disabled{
+        font-size: 0.8rem;
+    }
+}
+@media(max-width:760px){
+    .wrapper .title {
+        font-size: 1.8rem;
+        line-height: 30px;
+    }
+    .block {
+        max-width: 220px;
+        height: 360px;
+    }
+    .block::after {
+        clip-path: polygon(var(--border-width) calc(var(--edge-size) + var(--border-width) * -2), calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width), calc(100% - var(--border-width)) var(--border-width), calc(100% - var(--border-width)) calc(100% - calc(var(--edge-size) + var(--border-width) * -11)), calc(var(--border-width)) calc(100% - var(--border-width)));
+    }
+    .block__content{
+        margin: 0 35px;
+    }
+    .block__content p {
+        font-size: 0.7rem;
+        line-height: 12px;
+    }
+    .block__content h2 {
+        font-size: 2rem;
+        line-height: 36px;
+    }
+    .block__content h4 {
+        font-size: 1rem;
+    }
+    .block__content .block__content-description{
+        margin-top: 10px;
+    }
+    .block__weight {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    .block__weight-text {
+        font-size: .8rem;
+    }
+    .card .card-text, .card .card-text-selected, .card .card-text-disabled{
+        font-size: 0.75rem;
+    }
+}
